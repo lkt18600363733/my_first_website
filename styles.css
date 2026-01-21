@@ -81,13 +81,13 @@ nav {
 
 .hero {
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 25px 0 5px;
 }
 
 .hero h1 {
     font-size: 2.8rem;
     color: #0d2847;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     background: linear-gradient(to right, #0d2847, #1c5b96);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -106,7 +106,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .feature-card {
