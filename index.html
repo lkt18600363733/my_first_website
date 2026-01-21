@@ -1,12 +1,256 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的第一个网页</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能保顾系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>欢迎来到我的网页！</h1>
-    <p>这是一个非常简单的网页示例。</p>
-    <p>只需要一个HTML文件，用浏览器打开就能看到。</p>
-</body>
+    <!-- 顶部导航 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>智能保顾系统</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" id="home-link">首页</a></li>
+                <li><a href="#" id="service-link">服务介绍</a></li>
+                <li><a href="#" id="about-link">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- 首页内容 -->
+    <div class="container" id="home-page">
+        <div class="hero">
+            <h1>智能保险顾问系统</h1>
+            <p>基于AI技术的智能保险推荐与保单分析平台，为您提供个性化、专业化的保险规划服务，帮助您规避风险，保障未来。</p>
+        </div>
+        
+        <div class="features">
+            <!-- 核心功能1：智能保险推荐 -->
+            <div class="feature-card" id="feature1-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2>智能保险推荐</h2>
+                <p>根据您的个人情况与需求，通过智能算法分析，为您推荐最适合的保险方案。系统将综合考虑投保人身份、被保险人身份、投保目的、收入状况、家庭结构等多个因素，提供个性化保险方案。</p>
+                <p>输出内容包括：个性化保险方案、产品推荐列表、投保注意事项与常见误区提示。</p>
+                <button class="feature-btn" id="feature1-btn">开始智能推荐 <i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- 核心功能2：核保与保单分析助手 -->
+            <div class="feature-card" id="feature2-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h2>核保与保单分析助手</h2>
+                <p>上传您现有的保单，系统将自动解析保单内容，分析您的保险偏好与保障范围，并与数据库中的同类产品进行对比分析。</p>
+                <p>输出内容包括：同类产品对比分析、更优产品推荐（如适用）、法律与条款风险提示。</p>
+                <br>
+                <button class="feature-btn" id="feature2-btn">开始保单分析 <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 智能保顾系统 | 本系统仅供演示使用，不构成实际保险建议</p>
+        </footer>
+    </div>
+
+    <!-- 功能1页面：智能保险推荐 -->
+    <div class="function-page" id="function1-page">
+        <div class="page-header">
+            <button class="back-btn" id="back-from-function1">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>智能保险推荐</h2>
+        </div>
+        
+        <form id="insurance-form">
+            <div class="form-group">
+                <label for="policyholder">投保人身份</label>
+                <select class="form-control" id="policyholder" required>
+                    <option value="">请选择投保人身份</option>
+                    <option value="self">本人</option>
+                    <option value="spouse">配偶</option>
+                    <option value="child">子女</option>
+                    <option value="parent">父母</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="insured">被保险人身份</label>
+                <select class="form-control" id="insured" required>
+                    <option value="">请选择被保险人身份</option>
+                    <option value="self">本人</option>
+                    <option value="spouse">配偶</option>
+                    <option value="child">子女</option>
+                    <option value="parent">父母</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>投保目的（可多选）</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="purpose1" name="purpose" value="health">
+                        <label class="checkbox-label" for="purpose1">健康保障</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="purpose2" name="purpose" value="accident">
+                        <label class="checkbox-label" for="purpose2">意外防护</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="purpose3" name="purpose" value="education">
+                        <label class="checkbox-label" for="purpose3">教育储蓄</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="purpose4" name="purpose" value="retirement">
+                        <label class="checkbox-label" for="purpose4">养老规划</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="purpose5" name="purpose" value="property">
+                        <label class="checkbox-label" for="purpose5">财产保护</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="income">收入状况</label>
+                <select class="form-control" id="income" required>
+                    <option value="">请选择收入状况</option>
+                    <option value="low">20万元以下/年</option>
+                    <option value="medium">20-50万元/年</option>
+                    <option value="high">50-100万元/年</option>
+                    <option value="very-high">100万元以上/年</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="family">家庭结构</label>
+                <select class="form-control" id="family" required>
+                    <option value="">请选择家庭结构</option>
+                    <option value="single">单身</option>
+                    <option value="couple">已婚无子女</option>
+                    <option value="family1">已婚有1个子女</option>
+                    <option value="family2">已婚有2个及以上子女</option>
+                    <option value="single-parent">单亲家庭</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="feature-btn" style="width: 100%; margin-top: 20px;">
+                开始智能分析 <i class="fas fa-chart-line"></i>
+            </button>
+        </form>
+        
+        <!-- 输出结果区域 -->
+        <div class="output-section" id="function1-output" style="display: none;">
+            <h3>您的个性化保险方案</h3>
+            
+            <div class="output-card">
+                <h4>推荐方案概述</h4>
+                <p>根据您的个人情况，我们为您制定了全面的保障计划，重点关注健康保障和意外防护，同时兼顾养老规划。建议年度保费预算为年收入的8-12%。</p>
+            </div>
+            
+            <div class="output-card">
+                <h4>推荐产品列表</h4>
+                <ul class="output-list">
+                    <li><i class="fas fa-heartbeat"></i> 终身重大疾病保险 - 保障额度50万元</li>
+                    <li><i class="fas fa-car-crash"></i> 综合意外伤害保险 - 保障额度100万元</li>
+                    <li><i class="fas fa-procedures"></i> 百万医疗补充保险 - 年度保额300万元</li>
+                    <li><i class="fas fa-piggy-bank"></i> 养老年金保险 - 退休后每月领取5000元</li>
+                </ul>
+            </div>
+            
+            <div class="output-card">
+                <h4>投保注意事项与常见误区</h4>
+                <ul class="output-list">
+                    <li><i class="fas fa-exclamation-circle"></i> 请仔细阅读保险条款，特别是责任免除部分</li>
+                    <li><i class="fas fa-exclamation-circle"></i> 健康告知必须如实填写，否则可能影响理赔</li>
+                    <li><i class="fas fa-exclamation-circle"></i> 保险不是投资，保障功能应优先于收益</li>
+                    <li><i class="fas fa-exclamation-circle"></i> 家庭经济支柱应优先配置足额保障</li>
+                    <li><i class="fas fa-exclamation-circle"></i> 定期检视保单，确保保障与需求匹配</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 功能2页面：核保与保单分析助手 -->
+    <div class="function-page" id="function2-page">
+        <div class="page-header">
+            <button class="back-btn" id="back-from-function2">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>核保与保单分析助手</h2>
+        </div>
+        
+        <div class="upload-area" id="upload-area">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>上传您的保单文件</h3>
+            <p>支持图片(JPG, PNG)或PDF格式，最大文件大小10MB</p>
+            <button class="feature-btn" style="margin-top: 20px;">
+                <i class="fas fa-folder-open"></i> 选择文件
+            </button>
+        </div>
+        
+        <div class="form-group">
+            <label for="analysis-type">分析类型</label>
+            <select class="form-control" id="analysis-type">
+                <option value="comprehensive">全面分析</option>
+                <option value="coverage">保障范围分析</option>
+                <option value="cost-benefit">性价比分析</option>
+                <option value="risk">风险条款分析</option>
+            </select>
+        </div>
+        
+        <button class="feature-btn" id="analyze-btn" style="width: 100%; margin-top: 20px;">
+            开始分析保单 <i class="fas fa-search"></i>
+        </button>
+        
+        <!-- 输出结果区域 -->
+        <div class="output-section" id="function2-output" style="display: none;">
+            <h3>保单分析结果</h3>
+            
+            <div class="output-card">
+                <h4>您的保障偏好分析</h4>
+                <p>根据您现有的保单，系统分析出您更关注健康保障和长期储蓄，但在意外险和财产险方面保障不足。您的整体保障覆盖率为65%，建议补充相应保险产品。</p>
+            </div>
+            
+            <div class="output-card">
+                <h4>同类产品对比分析</h4>
+                <ul class="output-list">
+                    <li><i class="fas fa-balance-scale"></i> 您的重疾险保费比市场同类产品高12%</li>
+                    <li><i class="fas fa-balance-scale"></i> 医疗险保障范围比市场主流产品少3项</li>
+                    <li><i class="fas fa-balance-scale"></i> 意外险保额仅为建议保额的60%</li>
+                    <li><i class="fas fa-balance-scale"></i> 年金保险收益率低于市场平均水平0.5%</li>
+                </ul>
+            </div>
+            
+            <div class="output-card">
+                <h4>更优产品推荐</h4>
+                <ul class="output-list">
+                    <li><i class="fas fa-medal"></i> "全面守护"综合意外险 - 保额更高，保费低15%</li>
+                    <li><i class="fas fa-medal"></i> "健康无忧"百万医疗险 - 覆盖范围更广，包含特药</li>
+                    <li><i class="fas fa-medal"></i> "稳盈未来"养老年金 - 保证收益更高，灵活性更强</li>
+                </ul>
+            </div>
+            
+            <div class="output-card">
+                <h4>法律与条款风险提示</h4>
+                <ul class="output-list">
+                    <li><i class="fas fa-exclamation-triangle"></i> 您的保单中有3处等待期条款需要特别注意</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> 免责条款中的"既往症"定义较为严格</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> 重疾险中的轻症赔付比例低于行业标准</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> 医疗险的续保条件为非保证续保</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
 </html>
